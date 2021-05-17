@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TwitterClone</title>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <header class="header clearfix">
+        <ul class="top_menu clearfix">
+          <li><%= link_to "つぶやき一覧", posts_path %></li>
+          <li><a href="#">つぶやく</a></li>
+        </ul>
+    </header>
+
+    <h1 class="image_area">〜Twitter CLONE〜</h1>
+    <h2>the simple</h2>
+
+    <%= form_with(model: Post.new, local: true) do |form| %>
+      <div class = "post_content">
+        <%= form.label :今の気持ちをシンプルに %><br>
+        <%= form.text_area :content%>
+      </div>
+      <%= form.submit :つぶやく %>
+    <% end %>
+
+    <footer class="footer">
+      <p>I want to pass the assignment</p>
+    </footer>
+
+  </div>
+
+</body>
+
+</html>
