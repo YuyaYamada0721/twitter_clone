@@ -22,7 +22,7 @@
     <h1 class="image_area">〜Twitter CLONE〜</h1>
     <h2>the simple</h2>
 
-    <%= form_with(model: @post, local: true) do |form| %>
+    <%= form_with(model: @post, local: true, url: confirm_posts_path ) do |form| %>
       <div class = "post_content">
         <%= form.label :今の気持ちをシンプルに %><br>
         <%= form.text_area :content%>

@@ -25,9 +25,11 @@
 
     <div class = "post_show">
       <h1>以下の内容で、送信する。</h1>
-      <%= form_with(model: @blog, local: true) do |form| %>
+      <%= form_with(model: @post, local: true) do |form| %>
         <%= form.hidden_field :content %>
-        <p>つぶやき：<%= @post.post_content %></p>
+        <p>つぶやき：<%= @post.content %></p>
+        <%= form.submit "つぶやく" %>
+      <% end %>
     </div>
 
     <footer class="footer">
