@@ -13,7 +13,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     if params[:back]
       render :new
-    elsif @blog.save
+    elsif @post.save
       redirect_to posts_path, notice: 'つぶやきました。'
     else
       render :new
