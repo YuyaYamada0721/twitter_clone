@@ -9,8 +9,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(blog_params)
-    if @blog.save
+    @post = Post.new(post_params)
+    if @post.save
       redirect_to posts_path, notice: 'つぶやきました。'
     else
       render :new
