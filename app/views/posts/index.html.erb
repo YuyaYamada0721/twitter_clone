@@ -16,7 +16,7 @@
     <header class="header clearfix">
         <ul class="top_menu clearfix">
           <li><%= link_to "つぶやき一覧", posts_path %></li>
-          <li><a href="#">つぶやく</a></li>
+          <li><%= link_to "つぶやく", new_post_path %></li>
         </ul>
     </header>
 
@@ -25,15 +25,13 @@
 
     <table>
       <tr>
-        <th>内容</th>
+        <th>つぶやき</th>
       </tr>
-
+    <% @posts.each do |post| %>
       <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td><%= post.content %></td>
       </tr>
+    <% end %>
     </table>
 
 
