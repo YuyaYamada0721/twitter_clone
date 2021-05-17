@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css">
   <title>TwitterClone</title>
 </head>
 
@@ -16,25 +15,32 @@
     <header class="header clearfix">
         <ul class="top_menu clearfix">
           <li><%= link_to "つぶやき一覧", posts_path %></li>
-          <li><%= link_to "つぶやく", new_post_path %></li>
+          <li><a href="#">つぶやく</a></li>
         </ul>
     </header>
 
     <h1 class="image_area">〜Twitter CLONE〜</h1>
     <h2>the simple</h2>
 
-    <table>
-      <tr>
-        <th>〜つぶやき〜</th>
-      </tr>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.content %></td>
-        <td><%= link_to '詳細', post_path(post.id) %></td>
-        <td><%= link_to '編集', edit_post_path(post.id) %></td>
-      </tr>
+    <%= form_with(model: @post, local: true) do |form| %>
+      <div class = "post_content">
+        <%= form.label :今の気持ちをシンプルに %><br>
+        <%= form.text_area :content%>
+      </div>
+      <%= form.submit :つぶやく %>
+
+      <% if @post.errors.any? %>
+          <div id = "error_explanation">
+            <h2><%= @post.errors.count %>件のエラーがあります。</h2>
+            <ul>
+            <% @post.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+      <% end %>
+
     <% end %>
-    </table>
 
 
 
