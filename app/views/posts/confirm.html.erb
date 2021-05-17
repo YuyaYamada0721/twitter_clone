@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>TwitterClone</title>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <header class="header clearfix">
+        <ul class="top_menu clearfix">
+          <li><%= link_to "つぶやき一覧", posts_path %></li>
+          <li><%= link_to "つぶやく", new_post_path %></li>
+        </ul>
+    </header>
+
+    <h1 class="image_area">〜Twitter CLONE〜</h1>
+    <h2>the simple</h2>
+
+    <div class = "post_show">
+      <h1>以下の内容で、送信する。</h1>
+      <%= form_with(model: @blog, local: true) do |form| %>
+        <%= form.hidden_field :content %>
+        <p>つぶやき：<%= @post.post_content %></p>
+    </div>
+
+    <footer class="footer">
+      <p>I want to pass the assignment</p>
+    </footer>
+
+  </div>
+
+</body>
+
+</html>
